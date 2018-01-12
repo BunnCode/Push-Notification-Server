@@ -1,0 +1,14 @@
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\bin\Debug\PushNotificationServer.exe.config
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\bin\Debug\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\bin\Debug\PushNotificationServer.pdb
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\obj\Debug\PushNotificationServer.csprojResolveAssemblyReference.cache
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\obj\Debug\PushNotificationServer.csproj.CoreCompileInputs.cache
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\obj\Debug\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\PushNotificationServer\PushNotificationServer\obj\Debug\PushNotificationServer.pdb
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Debug\PushNotificationServer.exe.config
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Debug\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Debug\PushNotificationServer.pdb
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Debug\PushNotificationServer.csprojResolveAssemblyReference.cache
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Debug\PushNotificationServer.csproj.CoreCompileInputs.cache
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Debug\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Debug\PushNotificationServer.pdb

@@ -1,0 +1,6 @@
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer.exe.config
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer.pdb
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.csproj.CoreCompileInputs.cache
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.exe
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.pdb

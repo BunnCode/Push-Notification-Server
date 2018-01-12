@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Newtonsoft.Json.ruleset" ToolsVersion="12.0">
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1304" System.Action="Error" />
+    <Rule Id="CA1305" System.Action="Error" />
+    <Rule Id="CA1307" System.Action="Error" />
+    <Rule Id="CA1308" System.Action="Error" />
+    <Rule Id="CA1309" System.Action="Error" />
+    <Rule Id="CA1804" System.Action="Warning" />
+    <Rule Id="CA1811" System.Action="Warning" />
+    <Rule Id="CA1812" System.Action="Warning" />
+    <Rule Id="CA1823" System.Action="Warning" />
+    <Rule Id="CA1903" System.Action="Error" />
+  </Rules>
+</RuleSet>
