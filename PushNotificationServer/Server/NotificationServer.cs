@@ -1,6 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading;
+using Newtonsoft.Json;
+using PushNotificationServer.Notifications;
 using PushNotificationServer.Services;
 
 namespace PushNotificationServer {
@@ -8,17 +14,22 @@ namespace PushNotificationServer {
         private readonly List<Service> _services;
         private bool _running;
 
-
         /// <summary>
         ///     Server that listens for requests on the given URL
         /// </summary>
         /// <param name="boundURL">URL the server is bound to</param>
         /// <param name="writeToDisk">Should the server write to the disk?</param>
-        public NotificationServer(string boundURL, bool writeToDisk = false) {
-            Service logger = new Logger();
-            Service server = new NotificationDispatchServer(boundURL);
-            Service monitor = new ThreadMonitor(logger, server);
-            _services = new List<Service> {logger, server, monitor};
+        public NotificationServer(string boundURL, int maxThreads, bool writeToDisk = false) {
+            _services = new List<Service>();
+            var server = new HttpServer(boundURL, maxThreads);
+
+            if(writeToDisk) _services.Add(new Logger());
+            _services.Add(server);
+
+            var monitor = new ThreadMonitor(_services.ToArray());
+
+            _services.Add(monitor);
+            server.ProcessRequest += ProcessRequest;
         }
 
         /// <summary>
@@ -28,11 +39,10 @@ namespace PushNotificationServer {
             get => _running;
             set {
                 _running = value;
-                if (!value) {
-                    var toKill = _services.OrderByDescending(s => s).ToArray();
-                    foreach (var s in toKill)
-                        s.Stop();
-                }
+                if (value) return;
+                var toKill = _services.OrderByDescending(s => s).ToArray();
+                foreach (var s in toKill)
+                    s.Stop();
             }
         }
 
@@ -56,7 +66,8 @@ namespace PushNotificationServer {
             _services.Sort();
 
             //Start up the services
-            foreach (var service in _services) service.Start();
+            foreach (var service in _services)
+                service.Start();
 
             foreach (var service in _services)
                 if (!service.JobThread.IsAlive)
@@ -70,6 +81,26 @@ namespace PushNotificationServer {
         /// </summary>
         public void Stop() {
             Running = false;
+        }
+
+        private void ProcessRequest(HttpListenerContext context) {
+            try {
+
+                var request = context.Request;
+                var response = context.Response;
+                var requestContent = new StreamReader(request.InputStream).ReadToEnd();
+                var clientInfo = JsonConvert.DeserializeObject<ClientInfo>(requestContent);
+                Logger.Log($"Info requested from v{clientInfo.Version}");
+                var notificationInfo = NotificationInfoLoader.RetrieveInfo(clientInfo);
+                var messageOut = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(notificationInfo));
+                response.ContentLength64 = messageOut.Length;
+                var output = response.OutputStream;
+                output.Write(messageOut, 0, messageOut.Length);
+                output.Close();
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }

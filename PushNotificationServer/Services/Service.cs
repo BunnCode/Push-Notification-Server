@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Threading;
 using PushNotificationServer.Services;
 
 namespace PushNotificationServer {
-    internal abstract class Service : IComparable<Service> {
+    internal abstract class Service : IComparable<Service>, IDisposable
+    {
         /// <summary>
         ///     The thread that this job is running on
         /// </summary>
@@ -28,9 +30,15 @@ namespace PushNotificationServer {
         protected abstract void Job();
 
         /// <summary>
+        ///     Any extra logic required on job start
+        /// </summary>
+        protected virtual void StartFunction() { }
+
+        /// <summary>
         ///     Starts the job
         /// </summary>
         public void Start() {
+            StartFunction();
             Logger.Log($"{Name} started!");
             Running = true;
             if (JobThread != null)
@@ -46,9 +54,13 @@ namespace PushNotificationServer {
         /// </summary>
         protected virtual void StopFunction() { }
 
+        /// <summary>
+        /// Stop the service. Blocks until Job halts.
+        /// </summary>
         public void Stop() {
-            Running = false;
             StopFunction();
+            Running = false;
+            JobThread.Join();
             Logger.Log($"{Name} was stopped");
         }
 
@@ -57,8 +69,15 @@ namespace PushNotificationServer {
         /// </summary>
         public void Restart() {
             Stop();
-            Thread.Sleep(100);
+            Thread.Sleep(500);
             Start();
+        }
+
+        /// <summary>
+        /// Stop the service
+        /// </summary>
+        public void Dispose() {
+            Stop();
         }
     }
 }

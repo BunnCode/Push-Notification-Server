@@ -1,35 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Threading;
 using Mono.Options;
+using Newtonsoft.Json;
 using PushNotificationServer.Notifications;
+using PushNotificationServer.Services;
 
 namespace PushNotificationServer {
     internal class Program {
         private static bool _running = true;
+        private static string _url = "http://+:80/";
+        private static bool _help = false;
+        private static bool _writeToDisk = true;
+        private static int _threads = 4;
+        private static bool _clientTest = false;
 
         private static int Main(string[] args) {
-            var url = "http://+:80/";
-            var help = false;
-            var writeToDisk = true;
+
             var p = new OptionSet {
-                {"u|url", $"The URL to bind to, including port. (Default: {url})", v => url = v}, {
-                    "w", $"Flag to indicate that logs should not be written to disk (Default: {writeToDisk})",
-                    v => writeToDisk = v == null
-                },
-                {"h|?|help", "Show this dialog", v => help = v != null}
+                {"u|url=", $"The {{URL}} to bind to, including port. (Default: {_url})", v => _url = v},
+                {"w", $"Flag to indicate that logs should not be written to disk (Default: {_writeToDisk})", v => _writeToDisk = v == null },
+                {"t|threads=", $"The max number of threads. (Default: {_threads})", v => _threads = int.Parse(v)},
+                {"c|clienttest", $"Run a client test", v => _clientTest = v != null},
+                {"h|?|help", "Show this dialog", v => _help = v != null}
             };
+           
+            List<String> unknownCommands;
+            try {
+                unknownCommands = p.Parse(args);
+            }
+            catch (Exception e) {
+                Logger.Log($"Unable to parse commands:{e.Message}");
+                return 1;
+            }
+            if(unknownCommands.Count > 0)
+                Console.WriteLine($"Unknown commands: {string.Join(", ", unknownCommands)}");
 
-            var extra = p.Parse(args);
-            if(extra.Count > 0)
-                Console.WriteLine($"Unknown commands: {string.Join(", ", extra)}");
-
-            if (help) {
+            Console.WriteLine(_url);
+            if (_help) {
                 p.WriteOptionDescriptions(Console.Out);
                 return 0;
             }
 
-            var server = new NotificationServer(url, writeToDisk);
+            if (_clientTest) {
+                RunClientTest(_threads);
+                return 0;
+            }
+
+            var server = new NotificationServer(_url, _threads, _writeToDisk);
 
             #region commands
 
@@ -63,6 +83,45 @@ namespace PushNotificationServer {
             server.Stop();
             Console.ReadLine();
             return 0;
+        }
+
+        private static void RunClientTest(int threads) {
+            Thread[] workers = new Thread[threads];
+            for (int i = 0; i < workers.Length; i++) {
+                workers[i] = new Thread(ClientTest);
+                workers[i].Start();
+            }
+        }
+
+        private static void ClientTest() {
+            String ensureUse = "";
+            ClientInfo cInfo = new ClientInfo();
+            cInfo.Version = "6.2.0";
+            String clientInfo = JsonConvert.SerializeObject(cInfo);
+            while (true) {
+                WebRequest request = WebRequest.Create(_url);
+                request.Method = WebRequestMethods.Http.Post;
+                try
+                {
+                    byte[] encodedData = System.Text.Encoding.ASCII.GetBytes(clientInfo.ToCharArray());
+                    request.ContentLength = encodedData.Length;
+                    request.ContentType = "application/json";
+                    Stream dataStream = request.GetRequestStream();
+                    dataStream.Write(encodedData, 0, encodedData.Length);
+                    dataStream.Close();
+                    using (WebResponse response = request.GetResponse())
+                    {
+                        Stream stream = response.GetResponseStream();
+                        if (stream == null) return;
+                        using (StreamReader sr = new StreamReader(stream))
+                        {
+                            string notificationString = sr.ReadToEnd();
+                            Console.WriteLine(notificationString);
+                        }
+                    }
+                }
+                catch { }
+            }  
         }
     }
 }
