@@ -23,7 +23,7 @@ namespace PushNotificationServer {
             _services = new List<Service>();
             var server = new HttpServer(boundURL, maxThreads);
 
-            if(writeToDisk) _services.Add(new Logger());
+            if (writeToDisk) _services.Add(new Logger());
             _services.Add(server);
 
             var monitor = new ThreadMonitor(_services.ToArray());
@@ -85,13 +85,13 @@ namespace PushNotificationServer {
 
         private void ProcessRequest(HttpListenerContext context) {
             try {
-
                 var request = context.Request;
                 var response = context.Response;
                 var requestContent = new StreamReader(request.InputStream).ReadToEnd();
                 var clientInfo = JsonConvert.DeserializeObject<ClientInfo>(requestContent);
-                Logger.Log($"Info requested from v{clientInfo.Version}");
                 var notificationInfo = NotificationInfoLoader.RetrieveInfo(clientInfo);
+                Logger.Log(
+                    $"Info requested from v{clientInfo.Version}, sending {notificationInfo.Notifications.Count} notifications.");
                 var messageOut = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(notificationInfo));
                 response.ContentLength64 = messageOut.Length;
                 var output = response.OutputStream;

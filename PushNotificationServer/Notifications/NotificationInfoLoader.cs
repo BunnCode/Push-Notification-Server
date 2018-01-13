@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
+using PushNotificationServer.Services;
 
 namespace PushNotificationServer.Notifications {
     /// <summary>
@@ -24,7 +25,7 @@ namespace PushNotificationServer.Notifications {
         private static string NotificationDir {
             get {
                 if (_notificationDir == null) {
-                    _notificationDir = Directory.GetCurrentDirectory() +
+                    _notificationDir = AppDomain.CurrentDomain.BaseDirectory +
                                        Path.DirectorySeparatorChar +
                                        "Notifications" + Path.DirectorySeparatorChar;
                     if (!Directory.Exists(_notificationDir))
@@ -108,11 +109,15 @@ namespace PushNotificationServer.Notifications {
             }
 
             void LoadFileAction(string dir) {
-                foreach (var f in Directory.GetFiles(dir))
+                foreach (var f in Directory.GetFiles(dir)) {
                     LoadFile(f);
+                }          
             }
 
-            Console.WriteLine($"Loaded {_notifications.Count} notifications. Type 'list' to view.");
+            Console.WriteLine(
+                $"Loaded {_notifications.Count} notifications from dir " +
+                $"{GetRelativePath(NotificationDir, AppDomain.CurrentDomain.BaseDirectory)}. " +
+                $"Type 'list' to view.");
         }
 
         private static string GetNotificationDir(string id) {
@@ -132,6 +137,18 @@ namespace PushNotificationServer.Notifications {
                 var input = inputFile.ReadToEnd();
                 _notifications.Add(JsonConvert.DeserializeObject<Tuple<int[], NotificationInfo.Notification>>(input));
             }
+        }
+
+        private static string GetRelativePath(string filespec, string folder)
+        {
+            Uri pathUri = new Uri(filespec);
+            // Folders must end in a slash
+            if (!folder.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            {
+                folder += Path.DirectorySeparatorChar;
+            }
+            Uri folderUri = new Uri(folder);
+            return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         }
     }
 }

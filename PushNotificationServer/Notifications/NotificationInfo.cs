@@ -32,7 +32,7 @@ namespace PushNotificationServer.Notifications {
         }
 
         /// <summary>
-        /// Add a new notification
+        ///     Add a new notification
         /// </summary>
         /// <param name="n">The notification to add</param>
         public void AddNotification(Notification n) {

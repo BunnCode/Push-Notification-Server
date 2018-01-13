@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading;
-using Newtonsoft.Json;
-using PushNotificationServer.Notifications;
 
 namespace PushNotificationServer.Services {
     internal class HttpServer : Service {
-        public event Action<HttpListenerContext> ProcessRequest;
         private readonly string _boundUrl;
+        private readonly HttpListener _listener;
+        private readonly Queue<HttpListenerContext> _queue;
         private readonly ManualResetEvent _stop, _ready;
         private readonly Thread[] _workers;
-        private readonly Queue<HttpListenerContext> _queue;
-        private readonly HttpListener _listener;
 
         /// <summary>
         ///     Server that handles dispatching jobs to serve Notification requests
@@ -32,68 +27,43 @@ namespace PushNotificationServer.Services {
 
 
         public override string Name => "Notification Dispatch Server";
+        public event Action<HttpListenerContext> ProcessRequest;
 
         protected override void StartFunction() {
             _stop.Reset();
-            Logger.Log($"Started HttpServer with {_workers.Length} threads.");
             _listener.Prefixes.Add(_boundUrl);
             _listener.Start();
-
-            for (int i = 0; i < _workers.Length; i++) {
+            Logger.Log($"Started HttpServer with {_workers.Length} threads, bound to {_boundUrl}");
+            for (var i = 0; i < _workers.Length; i++) {
                 _workers[i] = new Thread(Worker);
-                
-            }
-            for (int i = 0; i < _workers.Length; i++)
-            {
                 _workers[i].Start();
-            } 
+            }
         }
 
-        protected override void StopFunction()
-        {
+        protected override void StopFunction() {
             _stop.Set();
             JobThread.Join();
-            foreach (Thread worker in _workers)
+            foreach (var worker in _workers)
                 worker.Join();
             _listener.Stop();
         }
 
-        protected override void Job()
-        {
-            try
-            {
-                while (_listener.IsListening) {
-                    try
-                    {
-                        var context = _listener.BeginGetContext(ContextReady, null);
-                        if (0 == WaitHandle.WaitAny(new[] {_stop, context.AsyncWaitHandle}))
-                            goto EXIT;
-                    }
-                    catch (Exception e)
-                    {
-                        Logger.Log($"Dispatch threw \"{e.Message}\", was caught successfully");
-                    }
-                }
+        protected override void Job() {
+            while (_listener.IsListening) {
+                var context = _listener.BeginGetContext(ContextReady, null);
+                if (0 == WaitHandle.WaitAny(new[] {_stop, context.AsyncWaitHandle}))
+                    return;
             }
-            catch (Exception e)
-            {
-                Logger.Log($"Crash!!! Dispatcher threw \"{e.Message}\", which was unhandled!");
-            }
-            EXIT:
-            Logger.Log("Work Dispatch server terminated.");
         }
 
-        private void ContextReady(IAsyncResult ar)
-        {
-            try
-            {
-                lock (_queue)
-                {
+        private void ContextReady(IAsyncResult ar) {
+            try {
+                lock (_queue) {
                     _queue.Enqueue(_listener.EndGetContext(ar));
                     _ready.Set();
                 }
             }
-            catch { return; }
+            catch { }
         }
 
         private void Worker() {
@@ -111,7 +81,7 @@ namespace PushNotificationServer.Services {
                 }
 
                 try {
-                    Logger.Log($"Request recieved; {context.Request.UserHostAddress}");
+                    Logger.Log($"Request recieved; {context.Request.RemoteEndPoint}");
                     ProcessRequest?.Invoke(context);
                 }
                 catch (Exception e) {

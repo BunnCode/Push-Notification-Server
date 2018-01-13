@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Threading;
 using PushNotificationServer.Services;
 
 namespace PushNotificationServer {
-    internal abstract class Service : IComparable<Service>, IDisposable
-    {
+    internal abstract class Service : IComparable<Service>, IDisposable {
         /// <summary>
         ///     The thread that this job is running on
         /// </summary>
@@ -22,6 +20,13 @@ namespace PushNotificationServer {
 
         public int CompareTo(Service other) {
             return Priority - other.Priority;
+        }
+
+        /// <summary>
+        ///     Stop the service
+        /// </summary>
+        public void Dispose() {
+            Stop();
         }
 
         /// <summary>
@@ -45,7 +50,15 @@ namespace PushNotificationServer {
                 while (JobThread.IsAlive)
                     Thread.Sleep(100);
 
-            JobThread = new Thread(Job);
+            JobThread = new Thread(() => {
+                try {
+                    Job();
+                }
+                catch (Exception e) {
+                    Logger.Log(
+                        $"Crash!!! {Name} crashed with the following exception:{e.Message}, StackTrace: {e.StackTrace}");
+                }
+            });
             JobThread.Start();
         }
 
@@ -55,7 +68,7 @@ namespace PushNotificationServer {
         protected virtual void StopFunction() { }
 
         /// <summary>
-        /// Stop the service. Blocks until Job halts.
+        ///     Stop the service. Blocks until Job halts.
         /// </summary>
         public void Stop() {
             StopFunction();
@@ -71,13 +84,6 @@ namespace PushNotificationServer {
             Stop();
             Thread.Sleep(500);
             Start();
-        }
-
-        /// <summary>
-        /// Stop the service
-        /// </summary>
-        public void Dispose() {
-            Stop();
         }
     }
 }

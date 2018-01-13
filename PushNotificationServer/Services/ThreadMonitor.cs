@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 
 namespace PushNotificationServer.Services {
@@ -34,19 +33,12 @@ namespace PushNotificationServer.Services {
         }
 
         protected override void Job() {
-            try {
-                while (Running) {
-                    foreach (var s in _monitoringServices)
-                        if (!s.JobThread.IsAlive)
-                            Logger.Log($"{s.Name} crashed! Restarting...");
-                    Thread.Sleep(CheckInterval);
-                }
+            while (Running) {
+                foreach (var s in _monitoringServices)
+                    if (!s.JobThread.IsAlive)
+                        Logger.Log($"{s.Name} crashed! Restarting...");
+                Thread.Sleep(CheckInterval);
             }
-            catch (Exception e) {
-                Logger.Log($"Crash!!! Thread monitor threw \"{e.Message}\", which was unhandled!");
-            }
-
-            Logger.Log("Thread Monitor thread stopped.");
         }
     }
 }

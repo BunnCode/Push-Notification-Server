@@ -7,10 +7,10 @@ namespace PushNotificationServer.Services {
     internal class Logger : Service {
         private const string LogName = "Log.txt";
         private static string _logDir;
-        private static readonly ConcurrentQueue<string> _logQueue;
+        private static readonly ConcurrentQueue<string> LogQueue;
 
         static Logger() {
-            _logQueue = new ConcurrentQueue<string>();
+            LogQueue = new ConcurrentQueue<string>();
             VerbosityLevel = 1;
         }
 
@@ -22,7 +22,7 @@ namespace PushNotificationServer.Services {
         private static string LogFile {
             get {
                 if (_logDir == null) {
-                    _logDir = Directory.GetCurrentDirectory();
+                    _logDir = AppDomain.CurrentDomain.BaseDirectory;
                     if (!Directory.Exists(_logDir))
                         Directory.CreateDirectory(_logDir);
                 }
@@ -38,35 +38,26 @@ namespace PushNotificationServer.Services {
                 return;
             var entry = DateTime.Now.ToString("HH:mm:ss MM/dd/yy ") + logString;
             Console.WriteLine(entry);
-            _logQueue.Enqueue(entry);
+            LogQueue.Enqueue(entry);
         }
 
         protected override void Job() {
-            try {
-                Log("Logging thread started!");
-                if (!File.Exists(LogFile)) {
-                    Log("No log file found. Creating...");
-                    File.Create(LogFile);
-                }
-
-                using (var outputFile = new StreamWriter(LogFile, true)) {
-                    while (Running)
-                        try {
-                            while (_logQueue.TryDequeue(out var entry)) outputFile.WriteLine(entry);
-
-                            outputFile.WriteLine();
-                            Thread.Sleep(100);
-                        }
-                        catch (Exception e) {
-                            Log($"Logger threw \"{e.Message}\", was caught successfully");
-                        }
-                }
-            }
-            catch (Exception e) {
-                Log($"Crash!!! Logger threw \"{e.Message}\", which was unhandled!");
+            if (!File.Exists(LogFile)) {
+                Log("No log file found. Creating...");
+                File.Create(LogFile);
             }
 
-            Log("Logging thread terminated.");
+            using (var outputFile = new StreamWriter(LogFile, true)) {
+                while (Running)
+                    try {
+                        while (LogQueue.TryDequeue(out var entry)) outputFile.WriteLine(entry);
+                        outputFile.WriteLine();
+                        Thread.Sleep(100);
+                    }
+                    catch (Exception e) {
+                        Log($"Logger threw \"{e.Message}\", was caught successfully");
+                    }
+            }
         }
     }
 }
