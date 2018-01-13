@@ -25,10 +25,10 @@ namespace PushNotificationServer.Services {
         }
 
         /// <summary>
-        ///     Add a service to be monitored
+        ///     Stop monitoring a service
         /// </summary>
-        /// <param name="service">The service to monitor</param>
-        public void ReeService(Service service) {
+        /// <param name="service">The service to remove</param>
+        public void RemoveService(Service service) {
             _monitoringServices.Add(service);
         }
 
