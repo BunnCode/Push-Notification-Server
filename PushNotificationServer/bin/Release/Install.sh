@@ -13,4 +13,4 @@ echo "Push Notification Service moved to Service dir"
 sudo systemctl daemon-reload
 sudo systemctl start pushnotificationserver.service
 sudo systemctl status pushnotificationserver.service
-echo "${RED}Push Notification Server Started on http://+:3010. To add new notifications, add them to /usr/local/PushNotificationServer/Notifications/${NC}"
+echo "${RED}Push Notification Server Started on http://+:3010. To add new notifications, add them to /usr/local/PushNotificationServer/Notifications/ and wait a few minutes${NC}"
