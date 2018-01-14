@@ -1,3 +1,0 @@
-/etc/systemd/system/pushnotificationserver.service
-systemctl daemon-reload
-systemctl start pushnotificationserver.service

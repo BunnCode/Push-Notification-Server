@@ -1,3 +1,0 @@
-18:14:06 01/13/18 Service Logger could not be restarted: Thread has not been started. :    at System.Threading.Thread.JoinInternal(Int32 millisecondsTimeout)
-   at PushNotificationServer.Services.Service.Stop() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Service.cs:line 89
-   at PushNotificationServer.Services.ThreadMonitor.RestartService(Service service) in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\ThreadMonitor.cs:line 41

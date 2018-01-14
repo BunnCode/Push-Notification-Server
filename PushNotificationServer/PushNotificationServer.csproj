@@ -28,7 +28,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\PushNotificationServer\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,13 +69,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Notifications\ExampleProduct\ProductIntro.txt">
+    <Content Include="PushNotificationServer\Notifications\ExampleProduct\ProductIntro.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Notifications\Intro to Messaging.txt">
+    <Content Include="PushNotificationServer\Notifications\Intro to Messaging.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="..\SharedProject1\SharedProject1.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>move "$(TargetFileName)" "./PushNotificationServer/"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

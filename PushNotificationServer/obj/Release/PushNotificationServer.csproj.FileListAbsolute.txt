@@ -5,16 +5,8 @@ C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-N
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.csproj.CoreCompileInputs.cache
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.exe
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\obj\Release\PushNotificationServer.pdb
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\Notifications\ExampleProduct\ProductIntro.txt
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\Notifications\Intro to Messaging.txt
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\Install.sh
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\pushnotificationserver.service
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\RunPushServer.sh
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\pushnotificationserver.service
+C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\RunPushServer.sh
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\Notifications\ExampleProduct\ProductIntro.txt
 C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\Notifications\Intro to Messaging.txt
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\Install.sh
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\PushNotificationServer\pushnotificationserver.service
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\PushNotificationServer\RunPushServer.sh
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\PushNotificationServer.exe.config
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\PushNotificationServer.exe
-C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\bin\Release\PushNotificationServer\PushNotificationServer.pdb
