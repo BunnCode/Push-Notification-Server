@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Threading;
-using PushNotificationServer.Services;
 
-namespace PushNotificationServer
+namespace PushNotificationServer.Services
 {
     internal abstract class Service : IComparable<Service>, IDisposable
     {
@@ -23,6 +22,7 @@ namespace PushNotificationServer
         /// </summary>
         public abstract string Name { get; }
 
+        /// <inheritdoc />
         public int CompareTo(Service other)
         {
             return Priority - other.Priority;

@@ -6,10 +6,15 @@ namespace PushNotificationServer.Notifications {
     public class ClientInfo {
         public string Version;
 
+        /// <summary>
+        ///     Get the version info as an array
+        /// </summary>
+        /// <returns>Version Info array</returns>
         public int[] GetVersionInfo() {
             return Array.ConvertAll(Version.Split('.'), int.Parse);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode() {
             var version = GetVersionInfo();
             var hash = version[0] * 17;
@@ -27,6 +32,12 @@ namespace PushNotificationServer.Notifications {
             Notifications = new List<Notification>();
         }
 
+        /// <summary>
+        ///     Add a new notification
+        /// </summary>
+        /// <param name="message">message to add</param>
+        /// <param name="type">type of notification</param>
+        /// <param name="id">ID of notification</param>
         public void AddNotification(string message, int type, int id) {
             Notifications.Add(new Notification(message, type, id));
         }
@@ -51,6 +62,7 @@ namespace PushNotificationServer.Notifications {
                 Id = id;
             }
 
+            /// <inheritdoc />
             public int CompareTo(object obj) {
                 if (obj == null) return 1;
                 if (obj is Notification other)

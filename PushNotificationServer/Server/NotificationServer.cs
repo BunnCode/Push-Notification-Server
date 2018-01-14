@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using PushNotificationServer.Notifications;
 using PushNotificationServer.Services;
 
-namespace PushNotificationServer {
+namespace PushNotificationServer.Server {
     internal class NotificationServer {
         private readonly List<Service> _services;
         private bool _running;

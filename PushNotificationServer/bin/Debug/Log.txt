@@ -57,3 +57,11 @@
 13:14:58 01/13/18 Notification Dispatch Server started!
 13:14:58 01/13/18 Thread Monitor started!
 13:14:58 01/13/18 Server started successfully.
+17:49:23 01/13/18 Server Started.
+17:49:23 01/13/18 Logger started!
+17:51:25 01/13/18 Server Started.
+17:51:25 01/13/18 Logger started!
+17:51:25 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+17:51:25 01/13/18 Notification Dispatch Server started!
+17:51:25 01/13/18 Thread Monitor started!
+17:51:25 01/13/18 Server started successfully.

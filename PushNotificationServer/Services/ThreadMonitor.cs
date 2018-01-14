@@ -20,8 +20,10 @@ namespace PushNotificationServer.Services {
             Crash += RestartService;
         }
 
+        /// <inheritdoc />
         public override string Name => "Thread Monitor";
 
+        /// <inheritdoc />
         protected override int Priority => 1;
 
         /// <summary>
@@ -52,6 +54,7 @@ namespace PushNotificationServer.Services {
             _monitoringServices.Add(service);
         }
 
+        /// <inheritdoc />
         protected override void Job() {
             while (Running) {
                 //Seems like ThreadMonitor might be outdated now the events are in play

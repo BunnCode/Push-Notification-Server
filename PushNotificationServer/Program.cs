@@ -7,6 +7,7 @@ using System.Threading;
 using Mono.Options;
 using Newtonsoft.Json;
 using PushNotificationServer.Notifications;
+using PushNotificationServer.Server;
 using PushNotificationServer.Services;
 
 namespace PushNotificationServer {
@@ -20,14 +21,14 @@ namespace PushNotificationServer {
 
         private static int Main(string[] args) {
             var p = new OptionSet {
-                {"u|url=", $"The {{URL}} to bind to, including port. (Default: {_url})", v => _url = v}, {
+                {"u|url=", $"The {{url}} to bind to, including port. (Default: {_url})", v => _url = v}, {
                     "w", $"Flag to indicate that logs should not be written to disk (Default: {_writeToDisk})",
                     v => _writeToDisk = v == null
                 }, {
-                    "t|threads=", $"The max number of {{THREADS}} the server will run on. (Default: {_threads})",
+                    "t|threads=", $"The max number of {{threads}} the server will run on. (Default: {_threads})",
                     v => _threads = int.Parse(v)
                 },{
-                    "v|verbosity=", $"The {{VERBOSITY}} of the server. (Default: {Logger.VerbosityThreshhold})",
+                    "v|verbosity=", $"The {{verbosity}} of the server. (Default: {Logger.VerbosityThreshhold})",
                     v => Logger.VerbosityThreshhold = int.Parse(v)
                 },
                 {"c|clienttest", $"Run a stress test on the server, posing as a client.", v => _clientTest = v != null},

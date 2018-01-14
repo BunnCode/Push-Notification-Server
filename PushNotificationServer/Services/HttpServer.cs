@@ -25,10 +25,12 @@ namespace PushNotificationServer.Services {
             _workers = new Thread[maxThreads];
         }
 
+        /// <inheritdoc />
         public override string Name => "Notification Dispatch Server";
 
         public event Action<HttpListenerContext> ProcessRequest;
 
+        /// <inheritdoc />
         protected override void StartFunction() {
             _stop.Reset();
             _listener.Prefixes.Add(_boundUrl);
@@ -40,6 +42,7 @@ namespace PushNotificationServer.Services {
             }
         }
 
+        /// <inheritdoc />
         protected override void StopFunction() {
             _stop.Set();
             JobThread.Join();
@@ -48,6 +51,7 @@ namespace PushNotificationServer.Services {
             _listener.Stop();
         }
 
+        /// <inheritdoc />
         protected override void Job() {
             while (_listener.IsListening) {
                 if (CrashImmediately) {
