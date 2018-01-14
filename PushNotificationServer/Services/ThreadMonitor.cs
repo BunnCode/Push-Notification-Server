@@ -32,18 +32,24 @@ namespace PushNotificationServer.Services {
         /// <param name="service">The service to monitor</param>
         public void AddService(Service service) {
             _monitoringServices.Add(service);
-            service.Crash += RestartService;
+            service.Crash += HandleCrash;
+        }
+
+        private void HandleCrash(Service service) {
+            if (service.Running) {
+                RestartService(service);
+            }
         }
 
         private void RestartService(Service service) {
-            Logger.Log($"Service {service.Name} crashed! Attempting to restart..");
+            Logger.LogWarning($"Service {service.Name} crashed! Attempting to restart..");
             try {
                 service.Restart();
             }
             catch (Exception e) {
                 Logger.LogError($"Service {service.Name} could not be restarted: {e.Message} : {e.StackTrace}");
             }
-            Logger.Log($"Service {service.Name} restarted.");
+            Logger.LogWarning($"Service {service.Name} restarted.");
         }
 
         /// <summary>

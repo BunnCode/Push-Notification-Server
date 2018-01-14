@@ -71,6 +71,7 @@ namespace PushNotificationServer {
             commands.Add("help", () => Console.WriteLine($"Commands: {string.Join(", ", commands.Keys)}"));
             commands.Add("crashall", () => server.CrashServer());
             commands.Add("testlog", () => Logger.Log("Test log"));
+            commands.Add("testlogwarning", () => Logger.LogWarning("Test warning log"));
             commands.Add("testlogerror", () => Logger.LogError("Test error log"));
             #endregion
 

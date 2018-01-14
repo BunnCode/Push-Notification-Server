@@ -5,6 +5,7 @@ namespace PushNotificationServer.Notifications {
     [Serializable]
     public class ClientInfo {
         public string Version;
+        public string Product;
 
         /// <summary>
         ///     Get the version info as an array

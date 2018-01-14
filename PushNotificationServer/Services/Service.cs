@@ -15,7 +15,7 @@ namespace PushNotificationServer.Services
         /// </summary>
         protected virtual int Priority => 0;
 
-        protected virtual bool Running { get; set; }
+        protected internal virtual bool Running { get; set; }
 
         /// <summary>
         ///     The name of this service
@@ -67,9 +67,10 @@ namespace PushNotificationServer.Services
                 {
                     Logger.LogError(
                         $"Crash!!! {Name} crashed with the following exception:{e.Message}, StackTrace: {e.StackTrace}");
-                    Crash?.Invoke(this);
+                    CrashService();
                 }
             });
+            
             JobThread.Start();
         }
 
@@ -107,5 +108,9 @@ namespace PushNotificationServer.Services
         ///     Event raised when the Service crashes.
         /// </summary>
         public event Action<Service> Crash;
+
+        protected virtual void CrashService() {
+            Crash?.Invoke(this);
+        }
     }
 }

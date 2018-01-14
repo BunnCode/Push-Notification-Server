@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace PushNotificationServer.Services
 {
-    internal class Logger : Service
-    {
-        private const string LogName = "Log.txt";
-        private const string ErrorLogName = "CriticalLog.txt";
+    internal class Logger : Service {
+
+        private const int LogFlushDelay = 100;
+        private const string LogName = "Log";
         private const string LogDateTimeFormat = "HH:mm:ss MM/dd/yy ";
-        private static readonly ConcurrentQueue<string> LogQueue;
-        private static readonly ConcurrentQueue<string> ErrorLogQueue;
+
+        private static readonly ConcurrentQueue<Tuple<int, string>> LogQueue;
+        private static readonly String[] LogTypes = { "", "Warning", "Error"};
+        private static readonly Dictionary<string, string> LogDirs;
+        private static readonly StreamWriter[] LogWriters;
+
         static Logger()
         {
-            LogQueue = new ConcurrentQueue<string>();
-            ErrorLogQueue = new ConcurrentQueue<string>();
+            LogQueue = new ConcurrentQueue<Tuple<int, string>>();
+            LogDirs = new Dictionary<string, string>();
+            LogWriters = new StreamWriter[LogTypes.Length];
             VerbosityThreshhold = 1;
         }
 
@@ -35,49 +41,31 @@ namespace PushNotificationServer.Services
                     if (!Directory.Exists(_logDir))
                         Directory.CreateDirectory(_logDir);
                 }
-
                 return _logDir;
             }
         }
 
-
-        private static string _logFile;
         /// <summary>
-        ///     The file in which logs are saved
+        /// Returns the file for a given LogType
         /// </summary>
-        private static string LogFile {
-            get {
-                if (_logFile == null)
+        /// <param name="type"></param>
+        /// <returns></returns>
+        private static string GetLogFile(int type)
+        {
+            string key = LogTypes[type];
+            if (!LogDirs.TryGetValue(key, out var fileDir))
+            {
+                lock (LogDirs)
                 {
-                    _logFile = LogDir + Path.DirectorySeparatorChar + LogName;
-                    if (!File.Exists(_logFile))
+                    fileDir = $"{LogDir}{Path.DirectorySeparatorChar}{LogName}{key}.txt";
+                    if (!File.Exists(fileDir))
                     {
-                        Log("No log file found. Creating...");
-                        File.Create(_logFile);
+                        Log($"No log file found for {key}. Creating...");
+                        File.Create(fileDir).Dispose();
                     }
                 }
-                return _logFile;
             }
-        }
-
-        private static string _errorLogFile;
-        /// <summary>
-        ///     The file in which error logs are saved
-        /// </summary>
-        private static string ErrorLogFile {
-            get {
-                if (_errorLogFile == null)
-                {
-                    _errorLogFile = LogDir + Path.DirectorySeparatorChar + ErrorLogName;
-                    if (!File.Exists(LogFile))
-                    {
-                        Log("No critical log file found. Creating...");
-                        File.Create(_errorLogFile);
-                    }
-                }
-
-                return _errorLogFile;
-            }
+            return fileDir;
         }
 
         public override string Name => "Logger";
@@ -89,13 +77,15 @@ namespace PushNotificationServer.Services
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void LogWithColors(string logString, ConsoleColor background, ConsoleColor foreground)
+        private static void LogWithColors(TextWriter textWriter, string logString, ConsoleColor background, ConsoleColor foreground)
         {
             ConsoleColor cachebg = Console.BackgroundColor;
             ConsoleColor cachefg = Console.ForegroundColor;
             Console.BackgroundColor = background;
             Console.ForegroundColor = foreground;
-            Console.WriteLine(logString);
+            lock (textWriter) {
+                textWriter.WriteLine(logString);
+            }
             Console.BackgroundColor = cachebg;
             Console.ForegroundColor = cachefg;
         }
@@ -106,41 +96,58 @@ namespace PushNotificationServer.Services
                 return;
             var entry = CreateLog(logString);
             Console.WriteLine(entry);
-            LogQueue.Enqueue(entry);
+            LogQueue.Enqueue(new Tuple<int, string>(0, entry));
+        }
+
+        public static void LogWarning(string logString, int importance = -1)
+        {
+            if (importance != -1 && importance > VerbosityThreshhold)
+                return;
+            var entry = CreateLog(logString);
+            LogWithColors(Console.Out, entry, ConsoleColor.Black, ConsoleColor.Yellow);
+            LogQueue.Enqueue(new Tuple<int, string>(0, entry));
         }
 
         public static void LogError(string logString)
         {
             var entry = CreateLog(logString);
-            LogWithColors(logString, ConsoleColor.Yellow, ConsoleColor.Red);
-            ErrorLogQueue.Enqueue(entry);
+            LogWithColors(Console.Error, entry, ConsoleColor.Yellow, ConsoleColor.Red);
+            LogQueue.Enqueue(new Tuple<int, string>(2, entry));
+        }
+
+        protected override void StartFunction() {
+            for (var i = 0; i < LogWriters.Length; i++) {
+                LogWriters[i]?.Dispose();
+                LogWriters[i] = new StreamWriter(GetLogFile(i), true);
+            }
+        }
+
+        protected override void StopFunction() {
+            foreach (var writer in LogWriters) {
+                writer?.Dispose();
+            }
         }
 
         protected override void Job()
         {
-            new Thread(() => WriteLogsToDisk(LogFile, LogQueue)).Start();
-            new Thread(() => WriteLogsToDisk(ErrorLogFile, ErrorLogQueue)).Start();
-        }
-
-        private void WriteLogsToDisk(String file, ConcurrentQueue<string> queue) {
-            using (var outputFile = new StreamWriter(file, true))
+            while (Running)
             {
-                outputFile.AutoFlush = true;
-                while (Running)
+                if (CrashImmediately)
                 {
-                    if (CrashImmediately)
-                    {
-                        CrashImmediately = false;
-                        throw new AggregateException();
-                    }
-
-                    while (queue.TryDequeue(out var entry))
-                    {
-                        outputFile.WriteLine(entry);
-                    }
-                    Thread.Sleep(100);
+                    CrashImmediately = false;
+                    throw new AggregateException();
                 }
-                outputFile.Dispose();
+
+                while (LogQueue.TryDequeue(out var entry))
+                {
+                    LogWriters[entry.Item1].WriteLine(entry.Item2);
+                }
+
+                foreach (var writer in LogWriters) {
+                    writer.Flush();
+                }
+
+                Thread.Sleep(LogFlushDelay);
             }
         }
     }

@@ -5,7 +5,7 @@
 # Required-Stop:  
 # Default-Start:  
 # Default-Stop:   
-# Description:       This server serves push notificaitons to asset users
+# Description:       This server serves push notifications to asset users
 #					 on port 3010
 ### END INIT INFO
-mono /usr/local/PushNotificationServer/PushNotificationServer.exe -t 10
+mono /usr/local/PushNotificationServer/PushNotificationServer.exe -t 10 -url http://+:3010/

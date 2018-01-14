@@ -8,11 +8,17 @@ using PushNotificationServer.Services;
 
 namespace PushNotificationServer.Notifications {
     /// <summary>
-    ///     Loads Notification Info from Disk.
+    ///     Loads Notification Info from Disk. Files are loaded with the following schema:
+    ///     ./{NotificationDirName}/{Product}/Notification Files. Notifications in the base
+    ///     ./{NotificationDirName}/ directory will be served to ALL clients, regardless of
+    ///     product.
     /// </summary>
     public static class NotificationInfoLoader {
+
+        private const String NotificationDirName = "Notifications";
+
         private static string _notificationDir;
-        private static List<Tuple<int[], NotificationInfo.Notification>> _notifications;
+        private static ConcurrentDictionary<string, List<Tuple<int[], NotificationInfo.Notification>>> _notifications;
         private static ConcurrentDictionary<string, NotificationInfo> _notificationDict;
 
         static NotificationInfoLoader() {
@@ -27,11 +33,10 @@ namespace PushNotificationServer.Notifications {
                 if (_notificationDir == null) {
                     _notificationDir = AppDomain.CurrentDomain.BaseDirectory +
                                        Path.DirectorySeparatorChar +
-                                       "Notifications" + Path.DirectorySeparatorChar;
+                                       NotificationDirName + Path.DirectorySeparatorChar;
                     if (!Directory.Exists(_notificationDir))
                         Directory.CreateDirectory(_notificationDir);
                 }
-
                 return _notificationDir;
             }
         }
@@ -40,7 +45,7 @@ namespace PushNotificationServer.Notifications {
         ///     Reload the notification files. Call this when notifications are changed.
         /// </summary>
         public static void Reload() {
-            _notifications = new List<Tuple<int[], NotificationInfo.Notification>>();
+            _notifications = new ConcurrentDictionary<string, List<Tuple<int[], NotificationInfo.Notification>>>();
             _notificationDict = new ConcurrentDictionary<string, NotificationInfo>();
             LoadAllFiles();
         }
@@ -48,17 +53,25 @@ namespace PushNotificationServer.Notifications {
         /// <summary>
         ///     Add a new notification to the server.
         /// </summary>
+        /// <param name="product">product to add</param>
         /// <param name="version">Version above which to not show the notification to</param>
         /// <param name="n">Notification to add</param>
-        public static void AddNotification(int[] version, NotificationInfo.Notification n) {
-            _notifications.Add(new Tuple<int[], NotificationInfo.Notification>(version, n));
+        public static void AddNotification(string product, int[] version, NotificationInfo.Notification n) {
+            if (!_notifications.TryGetValue(product, out var notificationList)) {
+                notificationList = new List<Tuple<int[], NotificationInfo.Notification>>();
+                _notifications.TryAdd(product, notificationList);
+            }
+           notificationList.Add(new Tuple<int[], NotificationInfo.Notification>(version, n));
         }
 
         /// <summary>
         ///     Write all notifications active in memory to the disk
         /// </summary>
         public static void WriteAllFiles() {
-            foreach (var v in _notifications) WriteFile(v.Item1, v.Item2);
+            foreach (var k in _notifications.Keys) {
+                foreach(var v in _notifications[k])
+                    WriteFile(v.Item1, v.Item2);
+            }
         }
 
         /// <summary>
@@ -67,17 +80,19 @@ namespace PushNotificationServer.Notifications {
         /// <param name="client">The client version to check</param>
         /// <returns>Notifications relevant to this version</returns>
         public static NotificationInfo RetrieveInfo(ClientInfo client) {
-            NotificationInfo info;
-            if (_notificationDict.TryGetValue(client.Version, out info))
+            if (_notificationDict.TryGetValue(client.Version, out var info))
                 return info;
 
             info = new NotificationInfo();
             var version = client.GetVersionInfo();
-            foreach (var n in _notifications)
-                if (n.Item1[0] >= version[0])
-                    if (n.Item1[1] >= version[1])
-                        if (n.Item1[2] >= version[2])
-                            info.AddNotification(n.Item2);
+            
+            if (_notifications.TryGetValue(client.Product, out var notificationList)) {
+                foreach (var n in notificationList)
+                    if (n.Item1[0] >= version[0])
+                        if (n.Item1[1] >= version[1])
+                            if (n.Item1[2] >= version[2])
+                                info.AddNotification(n.Item2);
+            }
 
             _notificationDict.TryAdd(client.Version, info);
             return info;
@@ -90,27 +105,40 @@ namespace PushNotificationServer.Notifications {
         public new static string ToString() {
             var builder = new StringBuilder();
             var i = 0;
-            foreach (var n in _notifications)
-                builder.Append($"Notification {i++}, for version: ({string.Join(", ", n.Item1)}) and lower:" +
-                               $"{Environment.NewLine}\"\"\"" +
-                               $"{Environment.NewLine}{n.Item2.Message}" +
-                               $"{Environment.NewLine}\"\"\"" +
-                               $"{Environment.NewLine}");
+            foreach (var notification in _notifications.Keys) {
+                if (_notifications.TryGetValue(notification, out var notificationList))
+                {
+                    foreach (var n in notificationList)
+                        builder.Append($"Notification {i++}, for version: ({string.Join(", ", n.Item1)}) and lower of product {notification}:" +
+                                       $"{Environment.NewLine}\"\"\"" +
+                                       $"{Environment.NewLine}{n.Item2.Message}" +
+                                       $"{Environment.NewLine}\"\"\"" +
+                                       $"{Environment.NewLine}");
+                }
+            }
             return builder.ToString();
         }
 
-        private static void LoadAllFiles() {
-            LoadFoldersAction(NotificationDir);
 
-            void LoadFoldersAction(string dir) {
-                foreach (var d in Directory.GetDirectories(dir))
-                    LoadFoldersAction(d);
-                LoadFileAction(dir);
+        private static void LoadAllFiles() {
+            LoadFoldersAction(null, NotificationDir);
+
+            void LoadFoldersAction(string productDir, string dir) {
+                foreach (var d in Directory.GetDirectories(dir)) {
+                    if (productDir == null || productDir.Equals(NotificationDirName)) {
+                        productDir = Path.GetFileName(d);
+                    }     
+                    LoadFoldersAction(productDir, d);
+                }    
+                LoadFileAction(productDir, dir);
             }
 
-            void LoadFileAction(string dir) {
+            void LoadFileAction(string productDir, string dir) {
                 foreach (var f in Directory.GetFiles(dir)) {
-                    LoadFile(f);
+                    LoadFile(productDir, f);
+                    if (productDir == null)
+                        Logger.LogError($"Warning! Could not get product for message {Path.GetFileName(f)}," +
+                                        $" message will be shown to all users regardless of product!");
                 }          
             }
 
@@ -118,6 +146,16 @@ namespace PushNotificationServer.Notifications {
                 $"Loaded {_notifications.Count} notifications from dir " +
                 $"{GetRelativePath(NotificationDir, AppDomain.CurrentDomain.BaseDirectory)}. " +
                 $"Type 'list' to view.");
+        }
+
+        private static void LoadFile(string productName, string fileName)
+        {
+            using (var inputFile = new StreamReader(fileName))
+            {
+                var input = inputFile.ReadToEnd();
+                var n = JsonConvert.DeserializeObject<Tuple<int[], NotificationInfo.Notification>>(input);
+                AddNotification(productName, n.Item1, n.Item2);
+            }
         }
 
         private static string GetNotificationDir(string id) {
@@ -132,12 +170,7 @@ namespace PushNotificationServer.Notifications {
             }
         }
 
-        private static void LoadFile(string fileName) {
-            using (var inputFile = new StreamReader(fileName)) {
-                var input = inputFile.ReadToEnd();
-                _notifications.Add(JsonConvert.DeserializeObject<Tuple<int[], NotificationInfo.Notification>>(input));
-            }
-        }
+      
 
         private static string GetRelativePath(string filespec, string folder)
         {

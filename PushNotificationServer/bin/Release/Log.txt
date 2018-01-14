@@ -2402,3 +2402,884 @@
 
 
 
+18:08:06 01/13/18 Server Started.
+18:08:06 01/13/18 Logger started!
+18:08:06 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+18:08:06 01/13/18 Notification Dispatch Server started!
+18:08:06 01/13/18 Thread Monitor started!
+18:08:06 01/13/18 Server started successfully.
+18:08:33 01/13/18 Server Started.
+18:08:33 01/13/18 Logger started!
+18:08:33 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+18:08:33 01/13/18 Notification Dispatch Server started!
+18:08:33 01/13/18 Thread Monitor started!
+18:08:33 01/13/18 Server started successfully.
+18:14:03 01/13/18 Server Started.
+18:14:03 01/13/18 Logger started!
+18:14:03 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+18:14:03 01/13/18 Notification Dispatch Server started!
+18:14:03 01/13/18 Thread Monitor started!
+18:14:03 01/13/18 Server started successfully.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Logger was stopped
+18:14:05 01/13/18 Logger started!
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:06 01/13/18 Service Logger restarted.
+18:14:05 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Logger was stopped
+18:14:06 01/13/18 Logger started!
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger restarted.
+18:14:06 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:06 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:06 01/13/18 Logger was stopped
+18:14:06 01/13/18 Logger started!
+18:14:06 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Logger was stopped
+18:14:07 01/13/18 Logger started!
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:07 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:07 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Logger was stopped
+18:14:08 01/13/18 Logger started!
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:08 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Logger was stopped
+18:14:08 01/13/18 Logger started!
+18:14:08 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:08 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:09 01/13/18 Logger was stopped
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:09 01/13/18 Logger started!
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:09 01/13/18 Logger was stopped
+18:14:10 01/13/18 Logger started!
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Logger was stopped
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Logger was stopped
+18:14:08 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger restarted.
+18:14:08 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Logger was stopped
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger started!
+18:14:10 01/13/18 Logger was stopped
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger started!
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger was stopped
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Logger started!
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger was stopped
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:10 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger restarted.
+18:14:09 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Service Logger restarted.
+18:14:10 01/13/18 Logger started!
+18:14:10 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Service Logger restarted.
+18:14:11 01/13/18 Logger was stopped
+18:14:11 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:11 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:11 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger was stopped
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Logger started!
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger restarted.
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:12 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger was stopped
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Logger was stopped
+18:14:14 01/13/18 Logger started!
+18:14:13 01/13/18 Logger was stopped
+18:14:14 01/13/18 Logger started!
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Logger started!
+18:14:13 01/13/18 Service Logger restarted.
+18:14:13 01/13/18 Service Logger restarted.
+18:14:17 01/13/18 Server Started.
+18:14:17 01/13/18 Logger started!
+18:14:17 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+18:14:17 01/13/18 Notification Dispatch Server started!
+18:14:17 01/13/18 Thread Monitor started!
+18:14:17 01/13/18 Server started successfully.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Service Logger restarted.
+18:14:18 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger started!
+18:14:18 01/13/18 Logger was stopped
+18:14:18 01/13/18 Logger was stopped
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:19 01/13/18 Logger was stopped
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Logger was stopped
+18:14:19 01/13/18 Service Logger restarted.
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:19 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:19 01/13/18 Service Logger restarted.
+18:14:19 01/13/18 Logger was stopped
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:19 01/13/18 Service Logger crashed! Attempting to restart..
+18:14:19 01/13/18 Logger was stopped
+18:14:19 01/13/18 Logger started!
+18:14:19 01/13/18 Logger was stopped
+18:14:19 01/13/18 Logger started!
+18:16:31 01/13/18 Server Started.
+18:16:31 01/13/18 Logger started!
+18:16:31 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+18:16:31 01/13/18 Notification Dispatch Server started!
+18:16:31 01/13/18 Thread Monitor started!
+18:16:32 01/13/18 Server started successfully.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger crashed! Attempting to restart..
+18:16:33 01/13/18 Service Logger restarted.
+18:16:33 01/13/18 Logger was stopped
+18:16:33 01/13/18 Logger started!
+18:16:33 01/13/18 Service Logger restarted.

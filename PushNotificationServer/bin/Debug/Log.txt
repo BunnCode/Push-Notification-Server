@@ -1,67 +1,30 @@
-13:07:46 01/13/18 Server Started.
-13:07:46 01/13/18 Logger started!
-13:07:46 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:07:46 01/13/18 Notification Dispatch Server started!
-13:07:46 01/13/18 Thread Monitor started!
-13:07:46 01/13/18 Server started successfully.
-13:07:47 01/13/18 Test log
-13:07:52 01/13/18 Server Started.
-13:07:52 01/13/18 Logger started!
-13:07:52 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:07:52 01/13/18 Notification Dispatch Server started!
-13:07:52 01/13/18 Thread Monitor started!
-13:07:52 01/13/18 Server started successfully.
-13:07:54 01/13/18 Test log
-13:08:48 01/13/18 Server Started.
-13:08:48 01/13/18 Logger started!
-13:08:48 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:08:48 01/13/18 Notification Dispatch Server started!
-13:08:48 01/13/18 Thread Monitor started!
-13:08:48 01/13/18 Server started successfully.
-13:08:49 01/13/18 Test log
-13:08:54 01/13/18 Test log
-13:09:01 01/13/18 Server Started.
-13:09:01 01/13/18 Logger started!
-13:09:01 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:09:01 01/13/18 Notification Dispatch Server started!
-13:09:01 01/13/18 Thread Monitor started!
-13:09:01 01/13/18 Server started successfully.
-13:09:03 01/13/18 Test log
-13:10:21 01/13/18 Server Started.
-13:10:21 01/13/18 Logger started!
-13:10:21 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:10:21 01/13/18 Notification Dispatch Server started!
-13:10:21 01/13/18 Thread Monitor started!
-13:10:21 01/13/18 Server started successfully.
-13:14:41 01/13/18 Server Started.
-13:14:41 01/13/18 Logger started!
-13:14:41 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:14:41 01/13/18 Notification Dispatch Server started!
-13:14:41 01/13/18 Thread Monitor started!
-13:14:41 01/13/18 Server started successfully.
-13:14:45 01/13/18 Test log
-13:14:47 01/13/18 Test log
-13:14:48 01/13/18 Test log
-13:14:49 01/13/18 Test log
-13:14:50 01/13/18 Test log
-13:14:57 01/13/18 Server shutting down...
-13:14:57 01/13/18 Thread Monitor was stopped
-13:14:57 01/13/18 Logger was stopped
-13:14:57 01/13/18 Notification Dispatch Server was stopped
-13:14:57 01/13/18 Restarting Server...
-13:14:57 01/13/18 Shutting Server Down...
-13:14:58 01/13/18 Rebooting Server...
-13:14:58 01/13/18 Server Started.
-13:14:58 01/13/18 Logger started!
-13:14:58 01/13/18 Started HttpServer with 4 threads, bound to http://+:80/
-13:14:58 01/13/18 Notification Dispatch Server started!
-13:14:58 01/13/18 Thread Monitor started!
-13:14:58 01/13/18 Server started successfully.
-17:49:23 01/13/18 Server Started.
-17:49:23 01/13/18 Logger started!
-17:51:25 01/13/18 Server Started.
-17:51:25 01/13/18 Logger started!
-17:51:25 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
-17:51:25 01/13/18 Notification Dispatch Server started!
-17:51:25 01/13/18 Thread Monitor started!
-17:51:25 01/13/18 Server started successfully.
+21:36:07 01/13/18 Server Started.
+21:36:07 01/13/18 No log file found for . Creating...
+21:36:07 01/13/18 No log file found for Warning. Creating...
+21:36:07 01/13/18 No log file found for Error. Creating...
+21:36:07 01/13/18 Logger started!
+21:36:07 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+21:36:07 01/13/18 Notification Dispatch Server started!
+21:36:07 01/13/18 Thread Monitor started!
+21:36:07 01/13/18 Server started successfully.
+21:36:08 01/13/18 Test log
+21:36:10 01/13/18 Test warning log
+21:36:24 01/13/18 Server Started.
+21:36:24 01/13/18 Logger started!
+21:36:24 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+21:36:24 01/13/18 Notification Dispatch Server started!
+21:36:24 01/13/18 Thread Monitor started!
+21:36:24 01/13/18 Server started successfully.
+21:36:25 01/13/18 Server shutting down...
+21:36:25 01/13/18 Thread Monitor was stopped
+21:36:25 01/13/18 Logger was stopped
+21:36:25 01/13/18 Notification Dispatch Server was stopped
+21:36:25 01/13/18 Restarting Server...
+21:36:25 01/13/18 Shutting Server Down...
+21:36:26 01/13/18 Rebooting Server...
+21:36:26 01/13/18 Server Started.
+21:36:26 01/13/18 Logger started!
+21:36:26 01/13/18 Started HttpServer with 4 threads, bound to http://+:3010/
+21:36:26 01/13/18 Notification Dispatch Server started!
+21:36:26 01/13/18 Thread Monitor started!
+21:36:26 01/13/18 Server started successfully.

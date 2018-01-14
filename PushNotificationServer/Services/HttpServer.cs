@@ -71,12 +71,19 @@ namespace PushNotificationServer.Services {
                     _ready.Set();
                 }
             }
-            catch { }
+            catch {
+            }
         }
 
         private void Worker() {
             WaitHandle[] wait = {_ready, _stop};
             while (0 == WaitHandle.WaitAny(wait)) {
+                if (CrashImmediately)
+                {
+                    CrashImmediately = false;
+                    throw new AggregateException();
+                }
+
                 HttpListenerContext context;
                 lock (_queue) {
                     if (_queue.Count > 0) {
@@ -93,7 +100,7 @@ namespace PushNotificationServer.Services {
                     ProcessRequest?.Invoke(context);
                 }
                 catch (Exception e) {
-                    Logger.Log($"Server could not process a request; {e.Message}", 0);
+                    Logger.LogWarning($"Server could not process a request; {e.Message}", 0);
                 }
             }
         }
