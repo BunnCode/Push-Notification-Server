@@ -22,7 +22,6 @@ namespace PushNotificationServer {
         public NotificationServer(string boundURL, int maxThreads, bool writeToDisk = false) {
             _services = new List<Service>();
             var server = new HttpServer(boundURL, maxThreads);
-
             if (writeToDisk) _services.Add(new Logger());
             _services.Add(server);
 
@@ -35,17 +34,21 @@ namespace PushNotificationServer {
         /// <summary>
         ///     Latch used for disabling server
         /// </summary>
-        public bool Running {
+        private bool Running {
             get => _running;
             set {
                 _running = value;
                 if (value) return;
+                Logger.Log("Server shutting down...");
                 var toKill = _services.OrderByDescending(s => s).ToArray();
                 foreach (var s in toKill)
                     s.Stop();
             }
         }
 
+        /// <summary>
+        ///     Restart the server
+        /// </summary>
         public void Restart() {
             Stop();
             Logger.Log("Restarting Server...");
@@ -83,6 +86,10 @@ namespace PushNotificationServer {
             Running = false;
         }
 
+        /// <summary>
+        ///     Process a notification request from a client
+        /// </summary>
+        /// <param name="context"></param>
         private void ProcessRequest(HttpListenerContext context) {
             try {
                 var request = context.Request;
@@ -91,7 +98,7 @@ namespace PushNotificationServer {
                 var clientInfo = JsonConvert.DeserializeObject<ClientInfo>(requestContent);
                 var notificationInfo = NotificationInfoLoader.RetrieveInfo(clientInfo);
                 Logger.Log(
-                    $"Info requested from v{clientInfo.Version}, sending {notificationInfo.Notifications.Count} notifications.");
+                    $"Info requested from v{clientInfo.Version}, sending {notificationInfo.Notifications.Count} notifications.", 1);
                 var messageOut = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(notificationInfo));
                 response.ContentLength64 = messageOut.Length;
                 var output = response.OutputStream;
@@ -100,6 +107,13 @@ namespace PushNotificationServer {
             }
             catch (Exception e) {
                 Console.WriteLine(e.StackTrace);
+            }
+        }
+
+        public void CrashServer() {
+            foreach (Service s in _services) {
+                s.CrashImmediately = true;
+                Thread.Sleep(1000);
             }
         }
     }

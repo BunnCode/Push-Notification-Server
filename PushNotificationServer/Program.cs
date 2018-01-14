@@ -12,7 +12,7 @@ using PushNotificationServer.Services;
 namespace PushNotificationServer {
     internal class Program {
         private static bool _running = true;
-        private static string _url = "http://+:80/";
+        private static string _url = "http://+:3010/";
         private static bool _help;
         private static bool _writeToDisk = true;
         private static int _threads = 4;
@@ -26,8 +26,11 @@ namespace PushNotificationServer {
                 }, {
                     "t|threads=", $"The max number of {{THREADS}} the server will run on. (Default: {_threads})",
                     v => _threads = int.Parse(v)
+                },{
+                    "v|verbosity=", $"The {{VERBOSITY}} of the server. (Default: {Logger.VerbosityThreshhold})",
+                    v => Logger.VerbosityThreshhold = int.Parse(v)
                 },
-                {"c|clienttest", $"Run a client test", v => _clientTest = v != null},
+                {"c|clienttest", $"Run a stress test on the server, posing as a client.", v => _clientTest = v != null},
                 {"h|?|help", "Show this dialog", v => _help = v != null}
             };
 
@@ -65,7 +68,9 @@ namespace PushNotificationServer {
             commands.Add("reload", NotificationInfoLoader.Reload);
             commands.Add("exit", () => { _running = false; });
             commands.Add("help", () => Console.WriteLine($"Commands: {string.Join(", ", commands.Keys)}"));
-
+            commands.Add("crashall", () => server.CrashServer());
+            commands.Add("testlog", () => Logger.Log("Test log"));
+            commands.Add("testlogerror", () => Logger.LogError("Test error log"));
             #endregion
 
             server.Start();
@@ -85,7 +90,7 @@ namespace PushNotificationServer {
             }
 
             server.Stop();
-            Console.ReadLine();
+            Logger.Log("Server shut down successfully.");
             return 0;
         }
 

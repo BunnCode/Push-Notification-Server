@@ -1,62 +1,146 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 
-namespace PushNotificationServer.Services {
-    internal class Logger : Service {
+namespace PushNotificationServer.Services
+{
+    internal class Logger : Service
+    {
         private const string LogName = "Log.txt";
-        private static string _logDir;
+        private const string ErrorLogName = "CriticalLog.txt";
+        private const string LogDateTimeFormat = "HH:mm:ss MM/dd/yy ";
         private static readonly ConcurrentQueue<string> LogQueue;
-
-        static Logger() {
+        private static readonly ConcurrentQueue<string> ErrorLogQueue;
+        static Logger()
+        {
             LogQueue = new ConcurrentQueue<string>();
-            VerbosityLevel = 1;
+            ErrorLogQueue = new ConcurrentQueue<string>();
+            VerbosityThreshhold = 1;
         }
 
-        public static int VerbosityLevel { get; set; }
+        public static int VerbosityThreshhold { get; set; }
 
+
+        private static string _logDir;
         /// <summary>
         ///     The directory in which logs are saved
         /// </summary>
-        private static string LogFile {
+        private static string LogDir {
             get {
-                if (_logDir == null) {
+                if (_logDir == null)
+                {
                     _logDir = AppDomain.CurrentDomain.BaseDirectory;
                     if (!Directory.Exists(_logDir))
                         Directory.CreateDirectory(_logDir);
                 }
 
-                return _logDir + Path.DirectorySeparatorChar + LogName;
+                return _logDir;
+            }
+        }
+
+
+        private static string _logFile;
+        /// <summary>
+        ///     The file in which logs are saved
+        /// </summary>
+        private static string LogFile {
+            get {
+                if (_logFile == null)
+                {
+                    _logFile = LogDir + Path.DirectorySeparatorChar + LogName;
+                    if (!File.Exists(_logFile))
+                    {
+                        Log("No log file found. Creating...");
+                        File.Create(_logFile);
+                    }
+                }
+                return _logFile;
+            }
+        }
+
+        private static string _errorLogFile;
+        /// <summary>
+        ///     The file in which error logs are saved
+        /// </summary>
+        private static string ErrorLogFile {
+            get {
+                if (_errorLogFile == null)
+                {
+                    _errorLogFile = LogDir + Path.DirectorySeparatorChar + ErrorLogName;
+                    if (!File.Exists(LogFile))
+                    {
+                        Log("No critical log file found. Creating...");
+                        File.Create(_errorLogFile);
+                    }
+                }
+
+                return _errorLogFile;
             }
         }
 
         public override string Name => "Logger";
 
-        public static void Log(string logString, int verbosityLevel = -1) {
-            if (verbosityLevel != -1 && verbosityLevel < VerbosityLevel)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static string CreateLog(string logString)
+        {
+            return DateTime.Now.ToString(LogDateTimeFormat) + logString;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void LogWithColors(string logString, ConsoleColor background, ConsoleColor foreground)
+        {
+            ConsoleColor cachebg = Console.BackgroundColor;
+            ConsoleColor cachefg = Console.ForegroundColor;
+            Console.BackgroundColor = background;
+            Console.ForegroundColor = foreground;
+            Console.WriteLine(logString);
+            Console.BackgroundColor = cachebg;
+            Console.ForegroundColor = cachefg;
+        }
+
+        public static void Log(string logString, int importance = -1)
+        {
+            if (importance != -1 && importance > VerbosityThreshhold)
                 return;
-            var entry = DateTime.Now.ToString("HH:mm:ss MM/dd/yy ") + logString;
+            var entry = CreateLog(logString);
             Console.WriteLine(entry);
             LogQueue.Enqueue(entry);
         }
 
-        protected override void Job() {
-            if (!File.Exists(LogFile)) {
-                Log("No log file found. Creating...");
-                File.Create(LogFile);
-            }
+        public static void LogError(string logString)
+        {
+            var entry = CreateLog(logString);
+            LogWithColors(logString, ConsoleColor.Yellow, ConsoleColor.Red);
+            ErrorLogQueue.Enqueue(entry);
+        }
 
-            using (var outputFile = new StreamWriter(LogFile, true)) {
+        protected override void Job()
+        {
+            new Thread(() => WriteLogsToDisk(LogFile, LogQueue)).Start();
+            new Thread(() => WriteLogsToDisk(ErrorLogFile, ErrorLogQueue)).Start();
+        }
+
+        private void WriteLogsToDisk(String file, ConcurrentQueue<string> queue) {
+            using (var outputFile = new StreamWriter(file, true))
+            {
+                outputFile.AutoFlush = true;
                 while (Running)
-                    try {
-                        while (LogQueue.TryDequeue(out var entry)) outputFile.WriteLine(entry);
-                        outputFile.WriteLine();
-                        Thread.Sleep(100);
+                {
+                    if (CrashImmediately)
+                    {
+                        CrashImmediately = false;
+                        throw new AggregateException();
                     }
-                    catch (Exception e) {
-                        Log($"Logger threw \"{e.Message}\", was caught successfully");
+
+                    while (queue.TryDequeue(out var entry))
+                    {
+                        outputFile.WriteLine(entry);
                     }
+                    Thread.Sleep(100);
+                }
+                outputFile.Dispose();
             }
         }
     }

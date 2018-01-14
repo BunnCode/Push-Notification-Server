@@ -25,8 +25,8 @@ namespace PushNotificationServer.Services {
             _workers = new Thread[maxThreads];
         }
 
-
         public override string Name => "Notification Dispatch Server";
+
         public event Action<HttpListenerContext> ProcessRequest;
 
         protected override void StartFunction() {
@@ -50,6 +50,10 @@ namespace PushNotificationServer.Services {
 
         protected override void Job() {
             while (_listener.IsListening) {
+                if (CrashImmediately) {
+                    CrashImmediately = false;
+                    throw new AggregateException();
+                }
                 var context = _listener.BeginGetContext(ContextReady, null);
                 if (0 == WaitHandle.WaitAny(new[] {_stop, context.AsyncWaitHandle}))
                     return;
@@ -81,11 +85,11 @@ namespace PushNotificationServer.Services {
                 }
 
                 try {
-                    Logger.Log($"Request recieved; {context.Request.RemoteEndPoint}");
+                    Logger.Log($"Request received; {context.Request.RemoteEndPoint}", 0);
                     ProcessRequest?.Invoke(context);
                 }
                 catch (Exception e) {
-                    Logger.Log($"Server could not process a request; {e.Message}");
+                    Logger.Log($"Server could not process a request; {e.Message}", 0);
                 }
             }
         }

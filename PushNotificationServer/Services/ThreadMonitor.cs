@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace PushNotificationServer.Services {
@@ -11,10 +12,17 @@ namespace PushNotificationServer.Services {
         /// </summary>
         /// <param name="monitoringServices"></param>
         public ThreadMonitor(params Service[] monitoringServices) {
-            _monitoringServices.AddRange(monitoringServices);
+            foreach (Service s in monitoringServices) {
+                AddService(s);
+            }
+
+            //yeah if this works this class's utility is essentially 0
+            Crash += RestartService;
         }
 
         public override string Name => "Thread Monitor";
+
+        protected override int Priority => 1;
 
         /// <summary>
         ///     Add a service to be monitored
@@ -22,6 +30,18 @@ namespace PushNotificationServer.Services {
         /// <param name="service">The service to monitor</param>
         public void AddService(Service service) {
             _monitoringServices.Add(service);
+            service.Crash += RestartService;
+        }
+
+        private void RestartService(Service service) {
+            Logger.Log($"Service {service.Name} crashed! Attempting to restart..");
+            try {
+                service.Restart();
+            }
+            catch (Exception e) {
+                Logger.LogError($"Service {service.Name} could not be restarted: {e.Message} : {e.StackTrace}");
+            }
+            Logger.Log($"Service {service.Name} restarted.");
         }
 
         /// <summary>
@@ -34,9 +54,7 @@ namespace PushNotificationServer.Services {
 
         protected override void Job() {
             while (Running) {
-                foreach (var s in _monitoringServices)
-                    if (!s.JobThread.IsAlive)
-                        Logger.Log($"{s.Name} crashed! Restarting...");
+                //Seems like ThreadMonitor might be outdated now the events are in play
                 Thread.Sleep(CheckInterval);
             }
         }
