@@ -6,8 +6,8 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using Newtonsoft.Json;
-using PushNotificationServer.Notifications;
 using PushNotificationServer.Services;
+using PushNotificationServer.UserIOData;
 
 namespace PushNotificationServer.Server {
     internal class NotificationServer {
@@ -24,10 +24,7 @@ namespace PushNotificationServer.Server {
             var server = new HttpServer(boundURL, maxThreads);
             if (writeToDisk) _services.Add(new Logger());
             _services.Add(server);
-
-            var monitor = new ThreadMonitor(_services.ToArray());
-
-            _services.Add(monitor);
+            _services.Add(new NotificationInfoLoader());
             server.ProcessRequest += ProcessRequest;
         }
 

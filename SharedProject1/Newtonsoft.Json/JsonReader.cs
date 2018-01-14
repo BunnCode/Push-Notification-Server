@@ -184,11 +184,11 @@ namespace Newtonsoft.Json
             get => _dateParseHandling;
             set
             {
-                if (value < Json.DateParseHandling.None ||
+                if (value < DateParseHandling.None ||
 #if HAVE_DATE_TIME_OFFSET
                     value > DateParseHandling.DateTimeOffset
 #else
-                    value > Json.DateParseHandling.DateTime
+                    value > DateParseHandling.DateTime
 #endif
                     )
                 {
@@ -207,7 +207,7 @@ namespace Newtonsoft.Json
             get => _floatParseHandling;
             set
             {
-                if (value < Json.FloatParseHandling.Double || value > Json.FloatParseHandling.Decimal)
+                if (value < FloatParseHandling.Double || value > FloatParseHandling.Decimal)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -325,8 +325,8 @@ namespace Newtonsoft.Json
         {
             _currentState = State.Start;
             _dateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind;
-            _dateParseHandling = Json.DateParseHandling.DateTime;
-            _floatParseHandling = Json.FloatParseHandling.Double;
+            _dateParseHandling = DateParseHandling.DateTime;
+            _floatParseHandling = FloatParseHandling.Double;
 
             CloseInput = true;
         }

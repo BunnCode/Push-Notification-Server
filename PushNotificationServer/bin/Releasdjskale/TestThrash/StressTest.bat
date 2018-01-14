@@ -1,0 +1,1 @@
+PushNotificationServer.exe -c -t 10 -w -u http://73.96.121.70:3010/

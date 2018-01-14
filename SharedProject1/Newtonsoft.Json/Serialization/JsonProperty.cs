@@ -197,7 +197,7 @@ namespace Newtonsoft.Json.Serialization
         /// <value>A value indicating whether this <see cref="JsonProperty"/> is required.</value>
         public Required Required
         {
-            get => _required ?? Json.Required.Default;
+            get => _required ?? Required.Default;
             set => _required = value;
         }
 

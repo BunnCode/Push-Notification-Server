@@ -164,7 +164,7 @@ namespace Newtonsoft.Json
         /// </value>
         public Required Required
         {
-            get => _required ?? Json.Required.Default;
+            get => _required ?? Required.Default;
             set => _required = value;
         }
 

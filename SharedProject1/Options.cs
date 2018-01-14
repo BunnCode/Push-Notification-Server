@@ -265,7 +265,7 @@ namespace Mono.Options
 
         private static int GetLineEnd(int start, int length, string description)
         {
-            int end = System.Math.Min(start + length, description.Length);
+            int end = Math.Min(start + length, description.Length);
             int sep = -1;
             for (int i = start; i < end; ++i)
             {
@@ -382,7 +382,7 @@ namespace Mono.Options
         public OptionContext(OptionSet set)
         {
             this.set = set;
-            this.c = new OptionValueCollection(this);
+            c = new OptionValueCollection(this);
         }
 
         public Option Option {
@@ -446,31 +446,31 @@ namespace Mono.Options
 
             this.prototype = prototype;
             this.description = description;
-            this.count = maxValueCount;
-            this.names = (this is OptionSet.Category)
+            count = maxValueCount;
+            names = (this is OptionSet.Category)
                 // append GetHashCode() so that "duplicate" categories have distinct
                 // names, e.g. adding multiple "" categories should be valid.
-                ? new[] { prototype + this.GetHashCode() }
+                ? new[] { prototype + GetHashCode() }
                 : prototype.Split('|');
 
             if (this is OptionSet.Category || this is CommandOption)
                 return;
 
-            this.type = ParsePrototype();
+            type = ParsePrototype();
             this.hidden = hidden;
 
-            if (this.count == 0 && type != OptionValueType.None)
+            if (count == 0 && type != OptionValueType.None)
                 throw new ArgumentException(
                         "Cannot provide maxValueCount of 0 for OptionValueType.Required or " +
                             "OptionValueType.Optional.",
                         "maxValueCount");
-            if (this.type == OptionValueType.None && maxValueCount > 1)
+            if (type == OptionValueType.None && maxValueCount > 1)
                 throw new ArgumentException(
                         string.Format("Cannot provide maxValueCount of {0} for OptionValueType.None.", maxValueCount),
                         "maxValueCount");
             if (Array.IndexOf(names, "<>") >= 0 &&
-                    ((names.Length == 1 && this.type != OptionValueType.None) ||
-                     (names.Length > 1 && this.MaxValueCount > 1)))
+                    ((names.Length == 1 && type != OptionValueType.None) ||
+                     (names.Length > 1 && MaxValueCount > 1)))
                 throw new ArgumentException(
                         "The default option handler '<>' cannot require values.",
                         "prototype");
@@ -577,11 +577,11 @@ namespace Mono.Options
             if (count > 1)
             {
                 if (seps.Count == 0)
-                    this.separators = new string[] { ":", "=" };
+                    separators = new string[] { ":", "=" };
                 else if (seps.Count == 1 && seps[0].Length == 0)
-                    this.separators = null;
+                    separators = null;
                 else
-                    this.separators = seps.ToArray();
+                    separators = seps.ToArray();
             }
 
             return type == '=' ? OptionValueType.Required : OptionValueType.Optional;
@@ -740,7 +740,7 @@ namespace Mono.Options
                 replacement = null;
                 return false;
             }
-            replacement = ArgumentSource.GetArgumentsFromFile(value.Substring(1));
+            replacement = GetArgumentsFromFile(value.Substring(1));
             return true;
         }
     }
@@ -760,25 +760,25 @@ namespace Mono.Options
         public OptionException(string message, string optionName)
             : base(message)
         {
-            this.option = optionName;
+            option = optionName;
         }
 
         public OptionException(string message, string optionName, Exception innerException)
             : base(message, innerException)
         {
-            this.option = optionName;
+            option = optionName;
         }
 
 #if !PCL
         protected OptionException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            this.option = info.GetString("OptionName");
+            option = info.GetString("OptionName");
         }
 #endif
 
         public string OptionName {
-            get { return this.option; }
+            get { return option; }
         }
 
 #if !PCL
@@ -804,7 +804,7 @@ namespace Mono.Options
 
         public OptionSet(MessageLocalizerConverter localizer)
         {
-            this.roSources = new ReadOnlyCollection<ArgumentSource>(sources);
+            roSources = new ReadOnlyCollection<ArgumentSource>(sources);
             this.localizer = localizer;
             if (this.localizer == null)
             {
@@ -1610,7 +1610,7 @@ namespace Mono.Options
             : base(d.Prototype, d.Description, d.MaxValueCount, d.Hidden)
         {
             this.commands = commands;
-            this.option = d;
+            option = d;
         }
 
         protected override void OnParseComplete(OptionContext c)
@@ -1821,7 +1821,7 @@ namespace Mono.Options
             if (arguments == null)
                 throw new ArgumentNullException(nameof(arguments));
 
-            this.showHelp = false;
+            showHelp = false;
             if (help == null)
             {
                 help = new HelpCommand();

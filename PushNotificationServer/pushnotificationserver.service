@@ -1,0 +1,10 @@
+[Unit]
+Description="Push Notification Server"
+After=network.target
+
+[Service]
+ExecStart =/usr/local/PushNotificationServer/RunPushServer.sh
+Type=simple
+PIDFile=/var/run/PushNotificationServer.pid
+
+ 

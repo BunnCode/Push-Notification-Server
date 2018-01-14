@@ -1,4 +1,0 @@
-﻿{"Item1":[6,2,2],"Item2":{"Id":4520,"Message":"This panel is used to relay important information to customers, including hotfix notifications. Should a notification
-be pushed, this box will prompt you automatically. You do not need to check it manually. <b><color=red>To make this box stop 
-popping up,</color></b> click the <b>x</b> on all notifications, then close this window.","Type":3}}
-

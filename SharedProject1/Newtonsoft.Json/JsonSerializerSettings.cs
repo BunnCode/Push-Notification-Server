@@ -38,25 +38,25 @@ namespace Newtonsoft.Json
     /// </summary>
     public class JsonSerializerSettings
     {
-        internal const ReferenceLoopHandling DefaultReferenceLoopHandling = Json.ReferenceLoopHandling.Error;
-        internal const MissingMemberHandling DefaultMissingMemberHandling = Json.MissingMemberHandling.Ignore;
-        internal const NullValueHandling DefaultNullValueHandling = Json.NullValueHandling.Include;
-        internal const DefaultValueHandling DefaultDefaultValueHandling = Json.DefaultValueHandling.Include;
-        internal const ObjectCreationHandling DefaultObjectCreationHandling = Json.ObjectCreationHandling.Auto;
-        internal const PreserveReferencesHandling DefaultPreserveReferencesHandling = Json.PreserveReferencesHandling.None;
-        internal const ConstructorHandling DefaultConstructorHandling = Json.ConstructorHandling.Default;
-        internal const TypeNameHandling DefaultTypeNameHandling = Json.TypeNameHandling.None;
-        internal const MetadataPropertyHandling DefaultMetadataPropertyHandling = Json.MetadataPropertyHandling.Default;
+        internal const ReferenceLoopHandling DefaultReferenceLoopHandling = ReferenceLoopHandling.Error;
+        internal const MissingMemberHandling DefaultMissingMemberHandling = MissingMemberHandling.Ignore;
+        internal const NullValueHandling DefaultNullValueHandling = NullValueHandling.Include;
+        internal const DefaultValueHandling DefaultDefaultValueHandling = DefaultValueHandling.Include;
+        internal const ObjectCreationHandling DefaultObjectCreationHandling = ObjectCreationHandling.Auto;
+        internal const PreserveReferencesHandling DefaultPreserveReferencesHandling = PreserveReferencesHandling.None;
+        internal const ConstructorHandling DefaultConstructorHandling = ConstructorHandling.Default;
+        internal const TypeNameHandling DefaultTypeNameHandling = TypeNameHandling.None;
+        internal const MetadataPropertyHandling DefaultMetadataPropertyHandling = MetadataPropertyHandling.Default;
         internal static readonly StreamingContext DefaultContext;
 
-        internal const Formatting DefaultFormatting = Json.Formatting.None;
-        internal const DateFormatHandling DefaultDateFormatHandling = Json.DateFormatHandling.IsoDateFormat;
-        internal const DateTimeZoneHandling DefaultDateTimeZoneHandling = Json.DateTimeZoneHandling.RoundtripKind;
-        internal const DateParseHandling DefaultDateParseHandling = Json.DateParseHandling.DateTime;
-        internal const FloatParseHandling DefaultFloatParseHandling = Json.FloatParseHandling.Double;
-        internal const FloatFormatHandling DefaultFloatFormatHandling = Json.FloatFormatHandling.String;
-        internal const StringEscapeHandling DefaultStringEscapeHandling = Json.StringEscapeHandling.Default;
-        internal const TypeNameAssemblyFormatHandling DefaultTypeNameAssemblyFormatHandling = Json.TypeNameAssemblyFormatHandling.Simple;
+        internal const Formatting DefaultFormatting = Formatting.None;
+        internal const DateFormatHandling DefaultDateFormatHandling = DateFormatHandling.IsoDateFormat;
+        internal const DateTimeZoneHandling DefaultDateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind;
+        internal const DateParseHandling DefaultDateParseHandling = DateParseHandling.DateTime;
+        internal const FloatParseHandling DefaultFloatParseHandling = FloatParseHandling.Double;
+        internal const FloatFormatHandling DefaultFloatFormatHandling = FloatFormatHandling.String;
+        internal const StringEscapeHandling DefaultStringEscapeHandling = StringEscapeHandling.Default;
+        internal const TypeNameAssemblyFormatHandling DefaultTypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple;
         internal static readonly CultureInfo DefaultCulture;
         internal const bool DefaultCheckAdditionalContent = false;
         internal const string DefaultDateFormatString = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss.FFFFFFFK";

@@ -191,12 +191,12 @@ namespace Newtonsoft.Json
                     // caller will convert result
                     break;
                 default:
-                    if (_dateParseHandling != Json.DateParseHandling.None)
+                    if (_dateParseHandling != DateParseHandling.None)
                     {
                         DateParseHandling dateParseHandling;
                         if (readType == ReadType.ReadAsDateTime)
                         {
-                            dateParseHandling = Json.DateParseHandling.DateTime;
+                            dateParseHandling = DateParseHandling.DateTime;
                         }
 #if HAVE_DATE_TIME_OFFSET
                         else if (readType == ReadType.ReadAsDateTimeOffset)
@@ -209,7 +209,7 @@ namespace Newtonsoft.Json
                             dateParseHandling = _dateParseHandling;
                         }
 
-                        if (dateParseHandling == Json.DateParseHandling.DateTime)
+                        if (dateParseHandling == DateParseHandling.DateTime)
                         {
                             if (DateTimeUtils.TryParseDateTime(_stringReference, DateTimeZoneHandling, DateFormatString, Culture, out DateTime dt))
                             {
@@ -2137,7 +2137,7 @@ namespace Newtonsoft.Json
                     }
                     else
                     {
-                        if (_floatParseHandling == Json.FloatParseHandling.Decimal)
+                        if (_floatParseHandling == FloatParseHandling.Decimal)
                         {
                             parseResult = ConvertUtils.DecimalTryParse(_stringReference.Chars, _stringReference.StartIndex, _stringReference.Length, out decimal d);
                             if (parseResult == ParseResult.Success)
@@ -2441,7 +2441,7 @@ namespace Newtonsoft.Json
                 {
                     case ReadType.Read:
                     case ReadType.ReadAsDouble:
-                        if (_floatParseHandling == Json.FloatParseHandling.Double)
+                        if (_floatParseHandling == FloatParseHandling.Double)
                         {
                             SetToken(JsonToken.Float, double.NegativeInfinity);
                             return double.NegativeInfinity;
@@ -2470,7 +2470,7 @@ namespace Newtonsoft.Json
                 {
                     case ReadType.Read:
                     case ReadType.ReadAsDouble:
-                        if (_floatParseHandling == Json.FloatParseHandling.Double)
+                        if (_floatParseHandling == FloatParseHandling.Double)
                         {
                             SetToken(JsonToken.Float, double.PositiveInfinity);
                             return double.PositiveInfinity;
@@ -2500,7 +2500,7 @@ namespace Newtonsoft.Json
                 {
                     case ReadType.Read:
                     case ReadType.ReadAsDouble:
-                        if (_floatParseHandling == Json.FloatParseHandling.Double)
+                        if (_floatParseHandling == FloatParseHandling.Double)
                         {
                             SetToken(JsonToken.Float, double.NaN);
                             return double.NaN;

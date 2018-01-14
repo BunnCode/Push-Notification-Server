@@ -1,1 +1,18 @@
 21:36:12 01/13/18 Test error log
+23:36:22 01/13/18 Crash!!! Thread Monitor crashed with the following exception:Thread was being aborted., StackTrace:    at System.Threading.Thread.SleepInternal(Int32 millisecondsTimeout)
+   at System.Threading.Thread.Sleep(Int32 millisecondsTimeout)
+   at PushNotificationServer.Services.ThreadMonitor.Job() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\ThreadMonitor.cs:line 68
+   at PushNotificationServer.Services.Service.<Start>b__13_0() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Service.cs:line 64
+23:36:26 01/13/18 Crash!!! Logger crashed with the following exception:Thread was being aborted., StackTrace:    at System.Threading.Thread.SleepInternal(Int32 millisecondsTimeout)
+   at System.Threading.Thread.Sleep(Int32 millisecondsTimeout)
+   at PushNotificationServer.Services.Logger.Job() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Logger.cs:line 150
+   at PushNotificationServer.Services.Service.<Start>b__13_0() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Service.cs:line 64
+23:36:26 01/13/18 Crash!!! Notification Info Loader crashed with the following exception:Thread was being aborted., StackTrace:    at System.Threading.Monitor.ReliableEnter(Object obj, Boolean& lockTaken)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AcquireLocks(Int32 fromInclusive, Int32 toExclusive, Int32& locksAcquired)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AcquireAllLocks(Int32& locksAcquired)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.Clear()
+   at PushNotificationServer.Services.NotificationInfoLoader.Reload() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\NotificationInfoLoader.cs:line 75
+   at PushNotificationServer.Services.NotificationInfoLoader.Job() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\NotificationInfoLoader.cs:line 47
+   at PushNotificationServer.Services.Service.<Start>b__13_0() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Service.cs:line 64
+23:43:28 01/13/18 Crash!!! Logger crashed with the following exception:One or more errors occurred., StackTrace:    at PushNotificationServer.Services.Logger.Job() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Logger.cs:line 138
+   at PushNotificationServer.Services.Service.<Start>b__13_0() in C:\Projects\Portalkit Pro\Assets\SKStudios\Common\.PushNotificationServer\Push-Notification-Server\PushNotificationServer\Services\Service.cs:line 64

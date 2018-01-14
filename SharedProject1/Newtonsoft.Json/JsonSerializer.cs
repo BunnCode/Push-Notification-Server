@@ -185,7 +185,7 @@ namespace Newtonsoft.Json
             get => _typeNameHandling;
             set
             {
-                if (value < Json.TypeNameHandling.None || value > Json.TypeNameHandling.Auto)
+                if (value < TypeNameHandling.None || value > TypeNameHandling.Auto)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -224,7 +224,7 @@ namespace Newtonsoft.Json
             get => _typeNameAssemblyFormatHandling;
             set
             {
-                if (value < Json.TypeNameAssemblyFormatHandling.Simple || value > Json.TypeNameAssemblyFormatHandling.Full)
+                if (value < TypeNameAssemblyFormatHandling.Simple || value > TypeNameAssemblyFormatHandling.Full)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -242,7 +242,7 @@ namespace Newtonsoft.Json
             get => _preserveReferencesHandling;
             set
             {
-                if (value < Json.PreserveReferencesHandling.None || value > Json.PreserveReferencesHandling.All)
+                if (value < PreserveReferencesHandling.None || value > PreserveReferencesHandling.All)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -260,7 +260,7 @@ namespace Newtonsoft.Json
             get => _referenceLoopHandling;
             set
             {
-                if (value < Json.ReferenceLoopHandling.Error || value > Json.ReferenceLoopHandling.Serialize)
+                if (value < ReferenceLoopHandling.Error || value > ReferenceLoopHandling.Serialize)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -278,7 +278,7 @@ namespace Newtonsoft.Json
             get => _missingMemberHandling;
             set
             {
-                if (value < Json.MissingMemberHandling.Ignore || value > Json.MissingMemberHandling.Error)
+                if (value < MissingMemberHandling.Ignore || value > MissingMemberHandling.Error)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -296,7 +296,7 @@ namespace Newtonsoft.Json
             get => _nullValueHandling;
             set
             {
-                if (value < Json.NullValueHandling.Include || value > Json.NullValueHandling.Ignore)
+                if (value < NullValueHandling.Include || value > NullValueHandling.Ignore)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -314,7 +314,7 @@ namespace Newtonsoft.Json
             get => _defaultValueHandling;
             set
             {
-                if (value < Json.DefaultValueHandling.Include || value > Json.DefaultValueHandling.IgnoreAndPopulate)
+                if (value < DefaultValueHandling.Include || value > DefaultValueHandling.IgnoreAndPopulate)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -333,7 +333,7 @@ namespace Newtonsoft.Json
             get => _objectCreationHandling;
             set
             {
-                if (value < Json.ObjectCreationHandling.Auto || value > Json.ObjectCreationHandling.Replace)
+                if (value < ObjectCreationHandling.Auto || value > ObjectCreationHandling.Replace)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -352,7 +352,7 @@ namespace Newtonsoft.Json
             get => _constructorHandling;
             set
             {
-                if (value < Json.ConstructorHandling.Default || value > Json.ConstructorHandling.AllowNonPublicDefaultConstructor)
+                if (value < ConstructorHandling.Default || value > ConstructorHandling.AllowNonPublicDefaultConstructor)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
@@ -371,7 +371,7 @@ namespace Newtonsoft.Json
             get => _metadataPropertyHandling;
             set
             {
-                if (value < Json.MetadataPropertyHandling.Default || value > Json.MetadataPropertyHandling.Ignore)
+                if (value < MetadataPropertyHandling.Default || value > MetadataPropertyHandling.Ignore)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }

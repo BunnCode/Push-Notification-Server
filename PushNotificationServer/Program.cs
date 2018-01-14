@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading;
 using Mono.Options;
 using Newtonsoft.Json;
-using PushNotificationServer.Notifications;
 using PushNotificationServer.Server;
 using PushNotificationServer.Services;
+using PushNotificationServer.UserIOData;
 
 namespace PushNotificationServer {
     internal class Program {
@@ -68,12 +68,15 @@ namespace PushNotificationServer {
             commands.Add("restart", server.Restart);
             commands.Add("reload", NotificationInfoLoader.Reload);
             commands.Add("exit", () => { _running = false; });
+#if DEBUG
             commands.Add("help", () => Console.WriteLine($"Commands: {string.Join(", ", commands.Keys)}"));
             commands.Add("crashall", () => server.CrashServer());
             commands.Add("testlog", () => Logger.Log("Test log"));
             commands.Add("testlogwarning", () => Logger.LogWarning("Test warning log"));
             commands.Add("testlogerror", () => Logger.LogError("Test error log"));
-            #endregion
+#endif
+
+#endregion
 
             server.Start();
             Thread.Sleep(100);

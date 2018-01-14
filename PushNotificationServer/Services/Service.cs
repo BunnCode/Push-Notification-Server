@@ -49,8 +49,8 @@ namespace PushNotificationServer.Services
         /// <summary>
         ///     Starts the job
         /// </summary>
-        public void Start()
-        {
+        public void Start() {
+            Crash += RestartService;
             StartFunction();
             Logger.Log($"{Name} started!");
             Running = true;
@@ -65,9 +65,9 @@ namespace PushNotificationServer.Services
                 }
                 catch (Exception e)
                 {
-                    Logger.LogError(
-                        $"Crash!!! {Name} crashed with the following exception:{e.Message}, StackTrace: {e.StackTrace}");
-                    CrashService();
+                    Logger.LogError($"Crash!!! {Name} crashed with the following exception:" +
+                                    $"{e.Message}, StackTrace: {e.StackTrace}");
+                    new Thread(InvokeCrash).Start();
                 }
             });
             
@@ -84,9 +84,11 @@ namespace PushNotificationServer.Services
         /// </summary>
         public void Stop()
         {
+            Crash -= RestartService;
             StopFunction();
             Running = false;
             JobThread.Join();
+
             Logger.Log($"{Name} was stopped");
         }
 
@@ -109,8 +111,23 @@ namespace PushNotificationServer.Services
         /// </summary>
         public event Action<Service> Crash;
 
-        protected virtual void CrashService() {
+        /// <summary>
+        ///     Immediately crash the service (for testing)
+        /// </summary>
+        protected virtual void InvokeCrash() {
             Crash?.Invoke(this);
+        }
+
+        private void RestartService(Service service)
+        {
+            Logger.LogWarning($"Service {service.Name} crashed! Attempting to restart..");
+            try {
+                service.Restart();
+            }
+            catch (Exception e) {
+                Logger.LogError($"Service {service.Name} could not be restarted: {e.Message} : {e.StackTrace}");
+            }
+            Logger.LogWarning($"Service {service.Name} restarted.");
         }
     }
 }
