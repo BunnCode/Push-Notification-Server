@@ -6,10 +6,10 @@ echo "deb http://download.mono-project.com/repo/ubuntu xenial main" | sudo tee /
 sudo apt-get update
 sudo apt-get install mono-devel
 echo "Mono installed."
-cp -a ./PushNotificationServer/. /usr/local/PushNotificationServer/
+sudo cp -a ./PushNotificationServer/. /usr/local/PushNotificationServer/
 echo "Push Notification Server files successfully moved."
-cp pushnotificationserver.service /etc/systemd/system/pushnotificationserver.service
+sudo cp pushnotificationserver.service /etc/systemd/system/pushnotificationserver.service
 echo "Push Notification Service moved to Service dir"
-systemctl daemon-reload
-systemctl start pushnotificationserver.service
+sudo systemctl daemon-reload
+sudo systemctl start pushnotificationserver.service
 echo "${RED}Push Notification Server Started. To add new notifications, add them to /usr/local/PushNotificationServer/Notifications/${NC}"
