@@ -9,4 +9,4 @@
 # Description:       This server serves push notificaitons to asset users
 #					 on port 3010
 ### END INIT INFO
-sudo mono PushNotificationServer/PushNotificationServer.exe -t 10
+sudo mono PushNotificationServer.exe -t 10
