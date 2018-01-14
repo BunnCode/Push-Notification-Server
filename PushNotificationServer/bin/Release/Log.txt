@@ -1,0 +1,16 @@
+00:46:46 01/14/18 Server Started.
+00:46:46 01/14/18 No log file found for . Creating...
+00:46:46 01/14/18 No log file found for Warning. Creating...
+00:46:46 01/14/18 No log file found for Error. Creating...
+00:46:46 01/14/18 Logger started!
+00:46:46 01/14/18 Started HttpServer with 4 threads, bound to http://+:3010/
+00:46:46 01/14/18 Notification Dispatch Server started!
+00:46:46 01/14/18 Notification Info Loader started!
+00:46:46 01/14/18 Server started successfully.
+01:18:50 01/14/18 Server Started.
+01:18:50 01/14/18 Logger started!
+01:18:50 01/14/18 Started HttpServer with 4 threads, bound to http://+:3010/
+01:18:50 01/14/18 Notification Dispatch Server started!
+01:18:50 01/14/18 Notification Info Loader started!
+01:18:50 01/14/18 Server started successfully.
+01:18:58 01/14/18 Request received; [::1]:62635

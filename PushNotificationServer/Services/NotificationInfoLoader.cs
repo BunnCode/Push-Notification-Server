@@ -23,7 +23,7 @@ namespace PushNotificationServer.Services
         private static readonly ConcurrentDictionary<string, List<Tuple<int[], Notification>>> Notifications;
         private static readonly ConcurrentDictionary<string, NotificationInfo> NotificationDict;
 
-        private ManualResetEvent _repollInterrupt;
+        private readonly ManualResetEvent _repollInterrupt;
         private static bool _needToRescan = true;
 
         static NotificationInfoLoader() {
@@ -121,12 +121,20 @@ namespace PushNotificationServer.Services
             info = new NotificationInfo();
             var version = client.GetVersionInfo();
             
-            if (Notifications.TryGetValue(client.Product, out var notificationList)) {
+            if (client.Product != null && Notifications.TryGetValue(client.Product, out var notificationList)) {
                 foreach (var n in notificationList)
                     if (n.Item1[0] >= version[0])
                         if (n.Item1[1] >= version[1])
                             if (n.Item1[2] >= version[2])
                                 info.AddNotification(n.Item2);
+            }
+            else {
+                foreach(var l in Notifications.Values)
+                    foreach(var n in l)
+                        if (n.Item1[0] >= version[0])
+                            if (n.Item1[1] >= version[1])
+                                if (n.Item1[2] >= version[2])
+                                    info.AddNotification(n.Item2);
             }
 
             NotificationDict.TryAdd(client.Version, info);
