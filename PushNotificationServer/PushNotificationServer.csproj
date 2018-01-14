@@ -61,7 +61,7 @@
     <None Include="Install.sh">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="PushNotificationServer\pushnotificationserver.service">
+    <None Include="pushnotificationserver.service">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="PushNotificationServer\RunPushServer.sh">
